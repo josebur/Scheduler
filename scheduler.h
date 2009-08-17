@@ -17,7 +17,7 @@ public:
     ~Scheduler();
 
 private:
-    Ui::Scheduler *ui;
+    Ui::Scheduler *m_ui;
 };
 
 #endif // SCHEDULER_H
