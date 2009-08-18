@@ -23,6 +23,9 @@
       <height>241</height>
      </rect>
     </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QWidget" name="workerWidget" native="true">
     <property name="geometry">
