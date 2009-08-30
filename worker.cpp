@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QTableWidgetItem>
 
-Worker::Worker(QTableWidget *view, const QString &name, const QString &shortName, const qreal &maxHours, const qreal &hours)
+Worker::Worker(const QString &name, const QString &shortName, const qreal &maxHours, const qreal &hours)
     : QTableWidgetItem()
 {
     m_name = name;
@@ -11,8 +11,7 @@ Worker::Worker(QTableWidget *view, const QString &name, const QString &shortName
     m_maxHours = maxHours;
     m_hours = hours;
 
-    setText(m_name + " (" + m_shortName + ") " + QString::number(m_hours));
-    view->setItem(view->rowCount(), 0, this);
+    setText(m_name);
 }
 
 Worker::~Worker()
