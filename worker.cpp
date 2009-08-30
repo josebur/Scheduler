@@ -1,10 +1,10 @@
 #include "worker.h"
 
 #include <QDebug>
-#include <QListWidgetItem>
+#include <QTableWidgetItem>
 
-Worker::Worker(QListWidget *view, const QString &name, const QString &shortName, const qreal &maxHours, const qreal &hours)
-    : QListWidgetItem(view, Type)
+Worker::Worker(QTableWidget *view, const QString &name, const QString &shortName, const qreal &maxHours, const qreal &hours)
+    : QTableWidgetItem()
 {
     m_name = name;
     m_shortName = shortName;
@@ -12,6 +12,7 @@ Worker::Worker(QListWidget *view, const QString &name, const QString &shortName,
     m_hours = hours;
 
     setText(m_name + " (" + m_shortName + ") " + QString::number(m_hours));
+    view->setItem(view->rowCount(), 0, this);
 }
 
 Worker::~Worker()
@@ -34,7 +35,7 @@ void Worker::setData(int role, const QVariant &value)
         m_hours = value.toDouble();
     }
     else {
-        QListWidgetItem::setData(role, value);
+        QTableWidgetItem::setData(role, value);
     }
 }
 
@@ -53,6 +54,6 @@ QVariant Worker::data(int role)
         return m_hours;
     }
     else {
-        return QListWidgetItem::data(role);
+        return QTableWidgetItem::data(role);
     }
 }

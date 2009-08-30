@@ -12,15 +12,13 @@ Scheduler::Scheduler(QWidget *parent)
 {
     m_ui->setupUi(this);
 
-    m_vertSplitter = new QSplitter(Qt::Vertical, parent);
-    m_vertSplitter->addWidget(m_ui->workerList);
-    m_vertSplitter->addWidget(m_ui->workerWidget);
-    m_mainSplitter = new QSplitter(Qt::Horizontal, parent);
-    m_mainSplitter->addWidget(m_vertSplitter);
-    m_mainSplitter->addWidget(m_ui->scheduleView);
-    setCentralWidget(m_mainSplitter);
+    m_splitter = new QSplitter(Qt::Horizontal, parent);
+    m_splitter->addWidget(m_ui->workerList);
+    m_splitter->addWidget(m_ui->scheduleView);
+    setCentralWidget(m_splitter);
 
     Worker *w1 = new Worker(m_ui->workerList, "Joe Burns", "JB", 20);
+    Worker *w2 = new Worker(m_ui->workerList, "Molly Starratt", "MS", 20, 15.5);
 }
 
 Scheduler::~Scheduler()
@@ -45,7 +43,6 @@ void Scheduler::writeSettings()
     settings.setValue("pos", pos());
     settings.setValue("size", size());
     settings.beginGroup("splitters");
-    settings.setValue("vertSplitter", m_vertSplitter->saveState());
-    settings.setValue("mainSplitter", m_mainSplitter->saveState());
+    settings.setValue("splitter", m_splitter->saveState());
     settings.endGroup();
 }

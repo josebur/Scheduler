@@ -1,13 +1,13 @@
 #ifndef WORKER_H
 #define WORKER_H
 
-#include <QListWidgetItem>
+#include <QTableWidgetItem>
 
-class Worker : public QListWidgetItem
+class Worker : public QTableWidgetItem
 {
     Q_ENUMS(WorkerRoles)
 public:
-    Worker(QListWidget *view, const QString &name, const QString &shortName,
+    Worker(QTableWidget *view, const QString &name, const QString &shortName,
            const qreal &maxHours = 0.0, const qreal &hours = 0.0);
     ~Worker();
 

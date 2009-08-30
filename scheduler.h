@@ -26,8 +26,7 @@ private:
     void writeSettings();
 
     Ui::Scheduler *m_ui;
-    QSplitter *m_vertSplitter;
-    QSplitter *m_mainSplitter;
+    QSplitter *m_splitter;
 };
 
 #endif // SCHEDULER_H
